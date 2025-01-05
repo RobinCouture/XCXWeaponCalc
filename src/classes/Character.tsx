@@ -46,6 +46,19 @@ class Character {
             return Character.characters;
         }
     }
+
+    static getCharacterByName(characterName: string): Character {
+        if (Character.characters.size > 0) {
+            return Character.characters.get(characterName) ?? Character.getBlankCharacter();
+        } else {
+            Character.generateCharacters();
+            return Character.characters.get(characterName) ?? Character.getBlankCharacter();
+        }
+    }
+    
+    static getBlankCharacter(): Character {        
+        return new Character("Blank");
+    }
 }
 
 export default Character;
