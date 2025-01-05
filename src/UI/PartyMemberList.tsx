@@ -1,7 +1,7 @@
 import Character from "../classes/Character";
 import PartyMember from "./PartyMember";
 
-function PartyMemberList({addMember = () => {}}) {
+function PartyMemberList() {
   const partyMemberList = Array.from(Character.getCharacters().values()).map(
     (characterFromList) => {
       return (
@@ -14,12 +14,12 @@ function PartyMemberList({addMember = () => {}}) {
   );
 
   function handleClick() {
-    addMember();
+    console.log("Clicked");
   }
 
   return (
     <>
-      <div onClick={handleClick}>{partyMemberList}</div>
+      <div>{partyMemberList}</div>
     </>
   );
 }

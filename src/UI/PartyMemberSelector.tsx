@@ -1,17 +1,27 @@
+import { useState } from "react";
 import images from "../assets/characters/characterImageImport.tsx";
+import Character from "../classes/Character.tsx";
+import PartyMember from "./PartyMember.tsx";
 
 function PartyMemberSelector() {
-  function handleClick() {
+  const [slot, setSlot] = useState<number>(0);
+  const blankCharacter = Character.getBlankCharacter();
+
+  const team = [
+    <PartyMember character={blankCharacter} />,
+    <PartyMember character={blankCharacter} />,
+    <PartyMember character={blankCharacter} />,
+  ]
+
+  function handleClick(e: React.MouseEvent<HTMLElement>) {
     console.log("Clicked");
   }
 
   return (
     <>
-    <div>
-      <p onClick={handleClick}>holder</p>
-      <p onClick={handleClick}>holder</p>
-      <p onClick={handleClick}>holder</p>
-    </div>
+      <div onClick={handleClick}>
+        {team}
+      </div>
     </>
   );
 }
