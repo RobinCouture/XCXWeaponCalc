@@ -6,8 +6,6 @@ import { useState } from 'react';
 import '../style/WeaponOddCalc.css';
 
 function WeaponOddCalc() {
-  const [slot, setSlot] = useState<number>(0);
-
   const weaponList = Array.from(Weapons.getWeapons().values()).map((weapon) => {
     return (
       <p key={weapon.name} id={weapon.name}>
@@ -16,22 +14,13 @@ function WeaponOddCalc() {
     );
   });
 
-  function addPartyMember() {
-    setSlot(slot + 1);
-    console.log("Slot: " + slot);
-  }
-
-  function removePartyMember() {
-    setSlot(slot - 1);
-  }
-
   return (
     <>
       <h1>Weapon Odd Calculator</h1>
       <p>Calculate the odds of your weapon dropping from the target.</p>
       <div className="container">
         <PartyMemberSelector />
-        <PartyMemberList addMember={addPartyMember}/>
+        <PartyMemberList />
       </div>
 
       {weaponList}
