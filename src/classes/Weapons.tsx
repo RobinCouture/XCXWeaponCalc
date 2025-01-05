@@ -4,8 +4,8 @@ class Weapons {
     private _odd!: number;    
 
     static weapons = new Map<String, Weapons>();
-    static melee_weapons = new Map<String, Weapons>();
-    static range_weapons = new Map<String, Weapons>();
+    static meleeWeapons = new Map<String, Weapons>();
+    static rangeWeapons = new Map<String, Weapons>();
 
     constructor(weaponName?: string, weaponType?: string) {
         this.name = weaponName ?? "";
@@ -21,7 +21,7 @@ class Weapons {
         Weapons.weapons.set("Javelin", new Weapons("Javelin", "Melee"));
         Weapons.weapons.set("Photon Saber", new Weapons("Photon Saber", "Melee"));
         
-        Weapons.weapons.set("Assault Riffle", new Weapons("Assault Riffle", "Range"));
+        Weapons.weapons.set("Assault Rifle", new Weapons("Assault Riffle", "Range"));
         Weapons.weapons.set("Gatling Gun", new Weapons("Gatling Gun", "Range"));
         Weapons.weapons.set("Dual Guns", new Weapons("Dual Guns", "Range"));
         Weapons.weapons.set("Sniper Rifle", new Weapons("Sniper Rifle", "Range"));
@@ -30,9 +30,9 @@ class Weapons {
 
         Weapons.weapons.forEach((value, key) => {
             if (value.type === "Melee") {
-                Weapons.melee_weapons.set(key, value);
+                Weapons.meleeWeapons.set(key, value);
             } else {
-                Weapons.range_weapons.set(key, value);
+                Weapons.rangeWeapons.set(key, value);
             }
         });
     }
@@ -47,20 +47,32 @@ class Weapons {
     }
 
     static getMeleeWeapons(): Map<String, Weapons> {
-        if (Weapons.melee_weapons.size > 0) {
-            return Weapons.melee_weapons;
+        if (Weapons.meleeWeapons.size > 0) {
+            return Weapons.meleeWeapons;
         } else {
             Weapons.generateWeapons();
-            return Weapons.melee_weapons;
+            return Weapons.meleeWeapons;
         }
     }
 
     static getRangeWeapons(): Map<String, Weapons> {
-        if (Weapons.range_weapons.size > 0) {
-            return Weapons.range_weapons;
+        if (Weapons.rangeWeapons.size > 0) {
+            return Weapons.rangeWeapons;
         } else {
             Weapons.generateWeapons();
-            return Weapons.range_weapons;
+            return Weapons.rangeWeapons;
+        }
+    }
+
+    static getWeaponByName(weaponName: string): Weapons | null {
+        if (Weapons.weapons.has(weaponName)) {
+            return Weapons.weapons.get(weaponName) ?? null;
+        } else {
+            if (Weapons.weapons.size === 0) {
+                Weapons.generateWeapons();
+                this.getWeaponByName(weaponName);
+            }
+            return null;
         }
     }
     
@@ -85,3 +97,5 @@ class Weapons {
         this._odd = value;
     }
 }
+
+export default Weapons;
