@@ -1,4 +1,3 @@
-import NLA_commercial from "../assets/images/NLA_commercial.png";
 import "../style/WaitingScreen.css";
 
 function WaitingScreen() {
