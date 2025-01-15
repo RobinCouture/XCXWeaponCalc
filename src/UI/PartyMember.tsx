@@ -2,7 +2,11 @@ import Character from "../classes/Character";
 import images from "../assets/characters/characterImageImport.tsx";
 import { useState } from "react";
 
-function PartyMember({ character }: { character: Character }) {
+interface PartyMemberProps {
+  character: Character;
+}
+
+function PartyMember({ character }: PartyMemberProps) {
   const [selected, setSelected] = useState<boolean>(false);
   const [assignedCharacter, setAssignedCharacter] = useState<Character>(character);
 
