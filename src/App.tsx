@@ -5,6 +5,7 @@ import WeaponOddCalc from './Applications/WeaponOddCalc'
 import CharaDisplayRow from './UI/TeamBuilder/CharaDisplayRow'
 import images from "./assets/characters/characterImageImport.tsx";
 import Character from './classes/Character'
+import CharaDisplayList from './UI/TeamBuilder/CharaDisplayList.tsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +13,8 @@ function App() {
 
   return (
     <>
-      <CharaDisplayRow character={chara.get("Elma")} />
+      <h1>Test</h1>
+      <CharaDisplayList characters={chara} />
     </>
   )
 }
