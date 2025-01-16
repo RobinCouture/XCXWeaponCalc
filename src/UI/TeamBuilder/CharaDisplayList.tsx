@@ -5,15 +5,17 @@ import ScrollableList from "../../classes/ScrollableList";
 
 interface CharaDisplayListProps {
   characters?: Map<string, Character>;
+  isTeamFull: Boolean;
+  onCharaClicked?: (chara: Character, selected: Boolean) => void;
 }
 
-function CharaDisplayList({ characters }: CharaDisplayListProps) {
-  const numberOfItems: number = characters?.size || 0;
+function CharaDisplayList({ characters, isTeamFull, onCharaClicked }: CharaDisplayListProps) {
   const CharaElementList = Array.from(characters?.values() || []).map(
     (chara, index) => {
-      return <CharaDisplayRow key={index} character={chara} />;
+      return <CharaDisplayRow key={index} character={chara} onCharaClicked={onCharaClicked} isTeamFull={isTeamFull}/>;
     }
   );
+
   return (
     <>
     <ScrollableList height="500px">
