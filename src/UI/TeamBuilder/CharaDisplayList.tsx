@@ -5,14 +5,14 @@ import ScrollableList from "../../classes/ScrollableList";
 
 interface CharaDisplayListProps {
   characters?: Map<string, Character>;
-  isTeamFull: Boolean;
-  onCharaClicked?: (chara: Character, selected: Boolean) => void;
+  team : Character[];
+  onCharaClicked?: (chara: Character) => void;
 }
 
-function CharaDisplayList({ characters, isTeamFull, onCharaClicked }: CharaDisplayListProps) {
+function CharaDisplayList({ characters, team, onCharaClicked }: CharaDisplayListProps) {
   const CharaElementList = Array.from(characters?.values() || []).map(
     (chara, index) => {
-      return <CharaDisplayRow key={index} character={chara} onCharaClicked={onCharaClicked} isTeamFull={isTeamFull}/>;
+      return <CharaDisplayRow key={index} character={chara} onCharaClicked={onCharaClicked} team={team}/>;
     }
   );
 

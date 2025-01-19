@@ -1,20 +1,25 @@
 import Character from "../../classes/Character";
 import images from "../../assets/characters/characterImageImport.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-interface CharaDisplayRowProps {
+interface TeamDisplayRowProps {
   character: Character | undefined;
-  onCharaClicked?: (chara: Character, selected: boolean) => void;
+  onCharaClicked?: (chara: Character) => void;
 }
 
-function CharaDisplayRow({ character, onCharaClicked }: CharaDisplayRowProps) {
-  const [selected, setSelected] = useState<boolean>(false);
+function TeamDisplayRow({ character, onCharaClicked } : TeamDisplayRowProps) {
+  const [isBlank, setIsBlank] = useState<boolean>(character?.name === "Blank");
+
+  useEffect(() => {
+    setIsBlank(character?.name === "Blank");
+  }), [character];
+
   function handleClick() {
-    setSelected(!selected);
     if (character && onCharaClicked) {
-      onCharaClicked(character, !selected);      
+           onCharaClicked(character);
     }
   }
+
   return (
     <>
       <li>
@@ -22,7 +27,6 @@ function CharaDisplayRow({ character, onCharaClicked }: CharaDisplayRowProps) {
           <img 
           src={images[character.name as keyof typeof images]}
           onClick={() => {handleClick()}} 
-          style={{opacity: selected ? 0.5 : 1}}
           />
         )}
       </li>
@@ -30,4 +34,4 @@ function CharaDisplayRow({ character, onCharaClicked }: CharaDisplayRowProps) {
   );
 }
 
-export default CharaDisplayRow;
+export default TeamDisplayRow;

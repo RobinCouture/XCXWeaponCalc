@@ -1,28 +1,30 @@
 import Character from "../../classes/Character";
 import images from "../../assets/characters/characterImageImport.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CharaDisplayRowProps {
   character: Character | undefined;
-  isTeamFull: Boolean;
-  onCharaClicked?: (chara: Character, selected: boolean) => void;
+  team : Character[];
+  onCharaClicked?: (chara: Character) => void;
 }
 
-function CharaDisplayRow({ character, isTeamFull, onCharaClicked }: CharaDisplayRowProps) {
-  const [selected, setSelected] = useState<boolean>(false);
+function CharaDisplayRow({ character, team, onCharaClicked }: CharaDisplayRowProps) {
   const [opacity, setOpacity] = useState<number>(1);
-  function handleClick() {
-    setSelected(!selected);
-    if (character && onCharaClicked) {
-      onCharaClicked(character, !selected);      
-    }
 
-    if (isTeamFull) {
-      setOpacity(1);
-    } else {
-      setOpacity(selected ? 1 : 0.5);
+  function handleClick() {
+    if (character && onCharaClicked) {
+      onCharaClicked(character);      
     }
   }
+
+  useEffect(() => {
+    if (team.includes(character as Character)) {
+      setOpacity(0.5);
+    } else {
+      setOpacity(1);
+    }
+  }, [team]);
+  
   return (
     <>
       <li>
