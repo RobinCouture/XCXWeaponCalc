@@ -12,8 +12,6 @@ function PartyMember({ character }: PartyMemberProps) {
 
   function handleClick() {
     setSelected(!selected);
-    console.log(selected);
-    console.log("Clicked " + assignedCharacter.name);
   }
 
   return (
