@@ -1,4 +1,4 @@
-import Character from "../../classes/Character";
+import Character from "../../classes/DataClass/Character.tsx";
 import images from "../../assets/characters/characterImageImport.tsx";
 
 interface CrossDisplayRowProps {

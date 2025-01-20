@@ -1,6 +1,6 @@
 import { useState } from "react";
 import images from "../assets/characters/characterImageImport.tsx";
-import Character from "../classes/Character.tsx";
+import Character from "../classes/DataClass/Character.tsx";
 import PartyMember from "./PartyMember.tsx";
 
 function PartyMemberSelector() {

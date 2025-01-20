@@ -1,4 +1,4 @@
-import Weapons from "../classes/Weapons";
+import Weapons from "../classes/DataClass/Weapons";
 import PartyMember from "../UI/PartyMember";
 import PartyMemberList from "../UI/PartyMemberList";
 import PartyMemberSelector from "../UI/PartyMemberSelector";

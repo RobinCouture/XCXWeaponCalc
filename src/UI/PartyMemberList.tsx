@@ -1,4 +1,4 @@
-import Character from "../classes/Character";
+import Character from "../classes/DataClass/Character";
 import PartyMember from "./PartyMember";
 
 function PartyMemberList() {

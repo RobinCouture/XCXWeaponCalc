@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Character from "../../classes/Character";
+import Character from "../../classes/DataClass/Character";
 import CharaDisplayRow from "./CharaDisplayRow";
 import ScrollableList from "../../classes/ScrollableList";
 

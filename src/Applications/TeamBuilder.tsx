@@ -1,4 +1,4 @@
-import Character from "../classes/Character";
+import Character from "../classes/DataClass/Character";
 import CharaDisplayList from "../UI/TeamBuilder/CharaDisplayList";
 import TeamDisplayList from "../UI/TeamBuilder/TeamDisplayList";
 import "../style/TeamBuilder/TeamBuilder.css";
