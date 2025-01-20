@@ -1,4 +1,4 @@
-import Character from "../../classes/Character";
+import Character from "../../classes/DataClass/Character.tsx";
 import images from "../../assets/characters/characterImageImport.tsx";
 import { useEffect, useState } from "react";
 
@@ -30,7 +30,7 @@ function CharaDisplayRow({ character, team, onCharaClicked }: CharaDisplayRowPro
       <li>
         {character && (
           <img 
-          src={images[character.name as keyof typeof images]}
+          src={character.image}
           onClick={() => {handleClick()}} 
           style={{opacity: opacity}}
           />
