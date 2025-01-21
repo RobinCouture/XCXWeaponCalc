@@ -1,0 +1,44 @@
+:root {
+    background-color: grey;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rank0 {
+    padding-right: 20%;
+}
+
+.rank1 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20%;
+    justify-content: space-between;
+
+    .classLogo {
+        margin-top: 65.5%;
+        margin-bottom: 65.5%;
+    }
+}
+
+.rank2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 20%;
+}
+
+.rank3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.classLogo {
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -56,7 +56,7 @@ class CrossClass {
 
     const Commando = new CrossClass("Commando", classImages["Commando"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
 
-    const WingerViper = new CrossClass("Winger Viper", classImages["Winged Viper"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
+    const WingedViper = new CrossClass("Winged Viper", classImages["Winged Viper"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
     const FullMetalJaguar = new CrossClass("Full Metal Jaguar", classImages["Full Metal Jaguar"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
 
     const PartisanEagle = new CrossClass("Partisan Eagle", classImages["Partisan Eagle"], weapons.get("Javelin"), weapons.get("Sniper Rifle"));
@@ -77,7 +77,7 @@ class CrossClass {
     Striker.childClasses = [SamuraiGunner, ShieldTrooper];
 
     Commando.parentClass = Drifter;
-    Commando.childClasses = [WingerViper, PartisanEagle];
+    Commando.childClasses = [WingedViper, PartisanEagle];
 
     Enforcer.parentClass = Drifter;
     Enforcer.childClasses = [Psycorruptor, BlastFencer];
@@ -88,8 +88,8 @@ class CrossClass {
     ShieldTrooper.parentClass = Striker;
     ShieldTrooper.childClasses = [BastionWarrior];
 
-    WingerViper.parentClass = Commando;
-    WingerViper.childClasses = [FullMetalJaguar];
+    WingedViper.parentClass = Commando;
+    WingedViper.childClasses = [FullMetalJaguar];
 
     PartisanEagle.parentClass = Commando;
     PartisanEagle.childClasses = [AstralCrusader];
@@ -106,7 +106,7 @@ class CrossClass {
     BastionWarrior.parentClass = ShieldTrooper;
     BastionWarrior.childClasses = [];
 
-    FullMetalJaguar.parentClass = WingerViper;
+    FullMetalJaguar.parentClass = WingedViper;
     FullMetalJaguar.childClasses = [];
 
     AstralCrusader.parentClass = PartisanEagle;
@@ -125,7 +125,7 @@ class CrossClass {
     this.crossClasses.set("Shield Trooper", ShieldTrooper);
     this.crossClasses.set("Bastion Warrior", BastionWarrior);
     this.crossClasses.set("Commando", Commando);
-    this.crossClasses.set("Winger Viper", WingerViper);
+    this.crossClasses.set("Winged Viper", WingedViper);
     this.crossClasses.set("Full Metal Jaguar", FullMetalJaguar);
     this.crossClasses.set("Partisan Eagle", PartisanEagle);
     this.crossClasses.set("Astral Crusader", AstralCrusader);
