@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import PartyMemberSelector from "./UI/PartyMemberSelector"
 import './App.css'
 import WeaponOddCalc from './Applications/WeaponOddCalc'
 import CharaDisplayRow from './UI/TeamBuilder/CharaDisplayRow'
@@ -16,8 +15,8 @@ function App() {
 
   return (
     <>
-    {/* <TeamBuilder characters={chara}/> */}
-      <ClassPanel />
+    <TeamBuilder characters={chara}/>
+      {/* <ClassPanel /> */}
     </>
   )
 }
