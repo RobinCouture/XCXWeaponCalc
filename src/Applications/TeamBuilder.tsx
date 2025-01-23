@@ -16,12 +16,7 @@ function TeamBuilder({ characters }: TeamBuilderProps) {
     Character.getBlankCharacter(),
     Character.getBlankCharacter(),
   ]);
-  const [isTeamFull, setIsTeamFull] = useState<boolean>(emptySlot === 4);
-
-  useEffect(() => {
-    setIsTeamFull(emptySlot === 4);
-  }),
-    [emptySlot];
+  const [popupVisible, setPopupVisible] = useState<boolean>(false);
 
   function handleCharaClicked(chara: Character) {
     console.log(chara?.name, team.includes(chara));
@@ -52,7 +47,6 @@ function TeamBuilder({ characters }: TeamBuilderProps) {
     newTeam.push(Character.getBlankCharacter());
     setTeam(newTeam);
     setEmptySlot(emptySlot - 1);
-    setIsTeamFull(false);
   }
 
   return (
