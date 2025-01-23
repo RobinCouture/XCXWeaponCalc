@@ -2,9 +2,11 @@ import "../../style/ClassPanel/ClassPanel.css";
 import Classes from "../../classes/DataClass/CrossClass.tsx";
 import ClassDisplay from "./ClassDisplay.tsx";
 
-interface classNamePanelProps {}
+interface classNamePanelProps {
+  onClassClicked? : (classe: Classes) => void;
+}
 
-function classNamePanel() {
+function classNamePanel({onClassClicked} : classNamePanelProps) {
   const classes = Classes.getCrossClasses();
 
   return (
@@ -12,28 +14,28 @@ function classNamePanel() {
       <h1>Class Panel</h1>
       <div className="wrapper">
         <div className="rank0">
-          <ClassDisplay classe={classes.get("Drifter")} />
+          <ClassDisplay classe={classes.get("Drifter")} onClassClicked={onClassClicked} />
         </div>
         <div className="rank1">
-          <ClassDisplay classe={classes.get("Striker")} />
-          <ClassDisplay classe={classes.get("Commando")} />
-          <ClassDisplay classe={classes.get("Enforcer")} />
+          <ClassDisplay classe={classes.get("Striker")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Commando")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Enforcer")} onClassClicked={onClassClicked} />
         </div>
         <div className="rank2">
-          <ClassDisplay classe={classes.get("Samurai Gunner")} />
-          <ClassDisplay classe={classes.get("Shield Trooper")} />
-          <ClassDisplay classe={classes.get("Winged Viper")} />
-          <ClassDisplay classe={classes.get("Partisan Eagle")} />
-          <ClassDisplay classe={classes.get("Psycorruptor")} />
-          <ClassDisplay classe={classes.get("Blast Fencer")} />
+          <ClassDisplay classe={classes.get("Samurai Gunner")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Shield Trooper")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Winged Viper")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Partisan Eagle")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Psycorruptor")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Blast Fencer")} onClassClicked={onClassClicked} />
         </div>
         <div className="rank3">
-          <ClassDisplay classe={classes.get("Duelist")} />
-          <ClassDisplay classe={classes.get("Bastion Warrior")} />
-          <ClassDisplay classe={classes.get("Full Metal Jaguar")} />
-          <ClassDisplay classe={classes.get("Astral Crusader")} />
-          <ClassDisplay classe={classes.get("Mastermind")} />
-          <ClassDisplay classe={classes.get("Galactic Knight")} />
+          <ClassDisplay classe={classes.get("Duelist")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Bastion Warrior")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Full Metal Jaguar")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Astral Crusader")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Mastermind")} onClassClicked={onClassClicked} />
+          <ClassDisplay classe={classes.get("Galactic Knight")} onClassClicked={onClassClicked} />
         </div>
       </div>
     </>

@@ -6,13 +6,14 @@ import TeamDisplayRow from "./TeamDisplayRow";
 interface TeamDisplayListProps {
     characters?: Character[];
     onCharaClicked?: (chara: Character) => void;
+    onCrossClicked?: () => void;
 }
 
-function TeamDisplayList({characters, onCharaClicked}: TeamDisplayListProps) {
+function TeamDisplayList({characters, onCharaClicked, onCrossClicked}: TeamDisplayListProps) {
     return(
         <>
         <ul>
-            <CrossDisplayRow character={characters?.[0]} />
+            <CrossDisplayRow character={characters?.[0]} onCrossClicked={onCrossClicked}/>
             <TeamDisplayRow character={characters?.[1]} onCharaClicked={onCharaClicked} />
             <TeamDisplayRow character={characters?.[2]} onCharaClicked={onCharaClicked}/>
             <TeamDisplayRow character={characters?.[3]} onCharaClicked={onCharaClicked}/>

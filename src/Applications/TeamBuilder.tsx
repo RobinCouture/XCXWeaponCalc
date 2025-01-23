@@ -1,8 +1,10 @@
 import Character from "../classes/DataClass/Character";
-import CharaDisplayList from "../UI/TeamBuilder/CharaDisplayList";
-import TeamDisplayList from "../UI/TeamBuilder/TeamDisplayList";
+import Classes from "../classes/DataClass/CrossClass";
 import "../style/TeamBuilder/TeamBuilder.css";
 import { useEffect, useState } from "react";
+import ClassPanel from "../UI/ClassPanel/ClassPanel";
+import TeamPanel from "../UI/TeamBuilder/TeamPanel";
+import ComponentSwitcher from "../UI/Reusable/ComponentSwitcher";
 
 interface TeamBuilderProps {
   characters?: Map<string, Character>;
@@ -16,7 +18,7 @@ function TeamBuilder({ characters }: TeamBuilderProps) {
     Character.getBlankCharacter(),
     Character.getBlankCharacter(),
   ]);
-  const [popupVisible, setPopupVisible] = useState<boolean>(false);
+  const [activeComponent, setActiveComponent] = useState<string>("TeamPanel");
 
   function handleCharaClicked(chara: Character) {
     console.log(chara?.name, team.includes(chara));
@@ -31,6 +33,16 @@ function TeamBuilder({ characters }: TeamBuilderProps) {
     if (chara.name !== "Blank") {
       removeCharaFromTeam(chara);
     }
+  }
+
+  function handleCrossClicked() {
+    setActiveComponent("ClassPanel");
+  }
+  
+  function handleClassClicked(classe : Classes) {
+    team[0].meleeWeapon = classe.meleeWeapon;
+    team[0].rangeWeapon = classe.rangeWeapon;
+    setActiveComponent("TeamPanel");
   }
 
   function addCharaToTeam(chara: Character) {
@@ -52,15 +64,17 @@ function TeamBuilder({ characters }: TeamBuilderProps) {
   return (
     <>
       <div>
-        <TeamDisplayList
-          characters={team}
-          onCharaClicked={handleTeamMemberClicked}
-        />
-        <CharaDisplayList
-          characters={characters}
-          onCharaClicked={handleCharaClicked}
-          team={team}
-        />
+        <ComponentSwitcher active={activeComponent}>
+          <TeamPanel
+            key="TeamPanel"
+            team={team}
+            characters={characters}
+            onTeamClicked={handleTeamMemberClicked}
+            onCharaClicked={handleCharaClicked}
+            onCrossClicked={handleCrossClicked}
+          />
+          <ClassPanel key="ClassPanel" onClassClicked={handleClassClicked}/>
+        </ComponentSwitcher>
       </div>
     </>
   );

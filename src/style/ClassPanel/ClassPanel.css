@@ -37,6 +37,16 @@
     justify-content: space-between;
 }
 
+.children::before {
+	position: absolute;
+	content: "";
+	left: 0;
+	width: 2px;
+	background-color: black;
+	top: 15px;
+	bottom: 15px;
+}
+
 .classLogo {
     cursor: pointer;
     margin-top: 10px;

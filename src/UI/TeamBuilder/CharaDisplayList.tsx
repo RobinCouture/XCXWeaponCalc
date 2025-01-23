@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Character from "../../classes/DataClass/Character";
 import CharaDisplayRow from "./CharaDisplayRow";
-import ScrollableList from "../../classes/ScrollableList";
+import ScrollableList from "../Reusable/ScrollableList";
 
 interface CharaDisplayListProps {
   characters?: Map<string, Character>;

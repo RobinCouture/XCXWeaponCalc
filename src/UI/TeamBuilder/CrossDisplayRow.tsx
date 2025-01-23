@@ -3,14 +3,21 @@ import images from "../../assets/characters/characterImageImport.tsx";
 
 interface CrossDisplayRowProps {
   character: Character | undefined;
+  onCrossClicked?: () => void;
 }
 
-function CrossDisplayRow({ character }: CrossDisplayRowProps) {
+function CrossDisplayRow({ character, onCrossClicked }: CrossDisplayRowProps) {
+  function handleClick() {
+    if (onCrossClicked) {
+      onCrossClicked();
+    }
+  }
+
   return (
     <>
       <li>
         {character && (
-          <p>{character.name} {character.meleeWeapon?.name} {character.rangeWeapon?.name} </p>
+          <p onClick={handleClick}>{character.name} {character.meleeWeapon?.name} {character.rangeWeapon?.name} </p>
         )}
       </li>
     </>
