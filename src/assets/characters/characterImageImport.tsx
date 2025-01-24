@@ -2,6 +2,7 @@ import Alexa from './Alexa.png';
 import Blank from './Blank.png';
 import Boze from './Boze.png';
 import Celica from './Celica.png';
+import Cross from './Cross.png';
 import Doug from './Doug.png';
 import Elma from './Elma.png';
 import Frye from './Frye.png';
@@ -23,6 +24,7 @@ export default {
     "Blank" : Blank,
     "Boze" : Boze,
     "Celica" : Celica,
+    "Cross" : Cross,
     "Doug" : Doug,
     "Elma" : Elma,
     "Frye" : Frye,
