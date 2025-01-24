@@ -5,23 +5,22 @@ import { useEffect, useState } from "react";
 import ClassPanel from "../UI/ClassPanel/ClassPanel";
 import TeamPanel from "../UI/TeamBuilder/TeamPanel";
 import ComponentSwitcher from "../UI/Reusable/ComponentSwitcher";
+import Weapons from "../classes/DataClass/Weapons";
 
 interface TeamBuilderProps {
   characters?: Map<string, Character>;
+  team: Character[];
+  setTeam: (team: Character[]) => void;
+  onClickValider: (page: string) => void;
 }
 
-function TeamBuilder({ characters }: TeamBuilderProps) {
-  const [emptySlot, setEmptySlot] = useState<number>(1);
-  const [team, setTeam] = useState<Character[]>([
-    new Character("Cross"),
-    Character.getBlankCharacter(),
-    Character.getBlankCharacter(),
-    Character.getBlankCharacter(),
-  ]);
+function TeamBuilder({ characters, team, setTeam, onClickValider }: TeamBuilderProps) {
+  const [emptySlot, setEmptySlot] = useState<number>(team.filter((c) => c.name !== "Blank").length);
   const [activeComponent, setActiveComponent] = useState<string>("TeamPanel");
 
   function handleCharaClicked(chara: Character) {
     console.log(chara?.name, team.includes(chara));
+    console.log(team);
     if (!team.includes(chara)) {
       addCharaToTeam(chara);
     } else {
@@ -43,6 +42,10 @@ function TeamBuilder({ characters }: TeamBuilderProps) {
     team[0].meleeWeapon = classe.meleeWeapon;
     team[0].rangeWeapon = classe.rangeWeapon;
     setActiveComponent("TeamPanel");
+  }
+
+  function handleClickValider() {
+    onClickValider("TeamBodyDisplay");
   }
 
   function addCharaToTeam(chara: Character) {
@@ -75,6 +78,7 @@ function TeamBuilder({ characters }: TeamBuilderProps) {
           />
           <ClassPanel key="ClassPanel" onClassClicked={handleClassClicked}/>
         </ComponentSwitcher>
+        <button onClick={handleClickValider}>valider</button>
       </div>
     </>
   );
