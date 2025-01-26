@@ -21,9 +21,9 @@ function App() {
 
   return (
     <>
-      <WeaponOddCalc team={team} characters={chara} setTeam={setTeam} />
+      {/* <WeaponOddCalc team={team} characters={chara} setTeam={setTeam} /> */}
       {/* <TeamBuilder characters={chara} team={team} setTeam={setTeam}/> */}
-      {/* <ClassPanel /> */}
+      <ClassPanel />
     </>
   );
 }
