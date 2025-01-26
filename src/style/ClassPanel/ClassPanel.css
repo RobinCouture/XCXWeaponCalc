@@ -17,11 +17,6 @@
     flex-direction: column;
     padding-right: 20%;
     justify-content: space-between;
-
-    .classLogo {
-        margin-top: 65.5%;
-        margin-bottom: 65.5%;
-    }
 }
 
 .rank2 {
@@ -37,18 +32,30 @@
     justify-content: space-between;
 }
 
-.children::before {
-	position: absolute;
-	content: "";
-	left: 0;
-	width: 2px;
-	background-color: black;
-	top: 15px;
-	bottom: 15px;
+.image-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
 }
 
 .classLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: black;
+}
+
+.border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 150%;
+    width: 150%;
+    object-fit: contain;
 }
