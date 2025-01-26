@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Character from "../classes/DataClass/Character";
 import Weapons from "../classes/DataClass/Weapons";
 import "../style/WeaponOddCalc.css";
 import TeamBodyDisplay from "../UI/WeaponOddsDisplay/TeamBodyDisplay";
 import ComponentSwitcher from "../UI/Reusable/ComponentSwitcher";
 import TeamBuilder from "./TeamBuilder";
+import OddsCalc from "../classes/Math/OddsCalc";
 
 interface WeaponOddCalcProps {
   team: Character[];
@@ -18,13 +19,15 @@ function WeaponOddCalc({ team, characters, setTeam }: WeaponOddCalcProps) {
   );
   const [activeComponent, setActiveComponent] =
     useState<string>("TeamBodyDisplay");
-  const weaponsOdds = Array.from(weapons.values()).map((weapon, index) => {
-    return (
-      <p key={index}>
-        {weapon.name} : {weapon.odd} %
-      </p>
-    );
-  });
+
+  useEffect(() => {
+    setWeapons(OddsCalc.calculateOdds(weapons, team));
+  }, [team]);
+
+  function test() {
+    let newTeam = [...team];
+    setTeam(newTeam);
+  }
 
   return (
     <>
@@ -44,15 +47,9 @@ function WeaponOddCalc({ team, characters, setTeam }: WeaponOddCalcProps) {
           onClickValider={setActiveComponent}
         />
       </ComponentSwitcher>
+      <button onClick={test}>refresh</button>
     </>
   );
-}
-
-//50% of the weighting is determined by the class of the controlled character
-//30% of the weighting is determined by the team members (spread among them -> 10% each | 15% each | 30%)
-//20% of the weighting is determined at random across all weapons
-function processWeaponOdds(team: Character[]) {
-  return;
 }
 
 export default WeaponOddCalc;

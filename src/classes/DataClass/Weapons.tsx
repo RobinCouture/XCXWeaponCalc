@@ -1,6 +1,6 @@
 class Weapons {
-    private _name!: string;
-    private _type!: string;    
+    private _name!: String;
+    private _type!: String;    
     private _odd!: number;    
 
     static weapons = new Map<String, Weapons>();
@@ -21,7 +21,7 @@ class Weapons {
         Weapons.weapons.set("Javelin", new Weapons("Javelin", "Melee"));
         Weapons.weapons.set("Photon Saber", new Weapons("Photon Saber", "Melee"));
         
-        Weapons.weapons.set("Assault Rifle", new Weapons("Assault Riffle", "Range"));
+        Weapons.weapons.set("Assault Rifle", new Weapons("Assault Rifle", "Range"));
         Weapons.weapons.set("Gatling Gun", new Weapons("Gatling Gun", "Range"));
         Weapons.weapons.set("Dual Guns", new Weapons("Dual Guns", "Range"));
         Weapons.weapons.set("Sniper Rifle", new Weapons("Sniper Rifle", "Range"));
@@ -76,14 +76,14 @@ class Weapons {
         }
     }
     
-    public get name(): string {
+    public get name(): String {
         return this._name;
     }
     public set name(value: string) {
         this._name = value;
     }
 
-    public get type(): string {
+    public get type(): String {
         return this._type;
     }
     public set type(value: string) {

@@ -11,7 +11,7 @@ interface TeamBodyDisplayProps {
 
 function TeamBodyDisplay({ team, weapons, onClickValider }: TeamBodyDisplayProps) {
   const weaponsOdds = Array.from(weapons.values()).map((weapon, index) => {
-    return <p key={index}>{weapon.name} : {weapon.odd} %</p>
+    return <p key={index}>{weapon.name} : {weapon.odd.toFixed(2)} %</p>
   });
 
   function handleClickValider() {
