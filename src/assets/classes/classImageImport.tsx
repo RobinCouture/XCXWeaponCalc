@@ -14,6 +14,7 @@ import SamuraiGunner from "./SamuraiGunner.png";
 import ShieldTrooper from "./ShieldTrooper.png";
 import Striker from "./Striker.png";
 import WingedViper from "./WingedViper.png";
+import ClassBorder from "./borders/classborder.png";
 
 export default {
     "Astral Crusader" : AstralCrusader,
@@ -32,4 +33,6 @@ export default {
     "Shield Trooper" : ShieldTrooper,
     "Striker" : Striker,
     "Winged Viper" : WingedViper,
+
+    "ClassBorder" : ClassBorder,
 }

@@ -4,6 +4,7 @@ import classImages from "../../assets/classes/classImageImport.tsx";
 class CrossClass {
   name!: string;
   image!: string;
+  border!: string;
   meleeWeapon!: Weapons | null;
   rangeWeapon!: Weapons | null;
   parentClass!: CrossClass | null;
@@ -14,11 +15,13 @@ class CrossClass {
   constructor(
     name: string,
     image: string,
+    border: string,
     meleeWeapon?: Weapons,
     rangeWeapon?: Weapons
   ) {
     this.name = name;
     this.image = image;
+    this.border = border;
     this.meleeWeapon = meleeWeapon ?? null;
     this.rangeWeapon = rangeWeapon ?? null;
   }
@@ -44,31 +47,31 @@ class CrossClass {
   static generateClasses() {
     const weapons = Weapons.getWeapons();
 
-    const Drifter = new CrossClass("Drifter", classImages["Drifter"], weapons.get("Knife"), weapons.get("Assault Rifle"));
+    const Drifter = new CrossClass("Drifter", classImages["Drifter"], classImages["ClassBorder"], weapons.get("Knife"), weapons.get("Assault Rifle"));
 
-    const Striker = new CrossClass("Striker", classImages["Striker"], weapons.get("Longsword"), weapons.get("Assault Rifle"));
+    const Striker = new CrossClass("Striker", classImages["Striker"], classImages["ClassBorder"], weapons.get("Longsword"), weapons.get("Assault Rifle"));
 
-    const SamuraiGunner = new CrossClass("Samurai Gunner", classImages["Samurai Gunner"], weapons.get("Longsword"), weapons.get("Assault Rifle"));
-    const Duelist = new CrossClass("Duelist", classImages["Duelist"], weapons.get("Longsword"), weapons.get("Assault Rifle"));
+    const SamuraiGunner = new CrossClass("Samurai Gunner", classImages["Samurai Gunner"], classImages["ClassBorder"], weapons.get("Longsword"), weapons.get("Assault Rifle"));
+    const Duelist = new CrossClass("Duelist", classImages["Duelist"], classImages["ClassBorder"], weapons.get("Longsword"), weapons.get("Assault Rifle"));
 
-    const ShieldTrooper = new CrossClass("Shield Trooper", classImages["Shield Trooper"], weapons.get("Shield"), weapons.get("Gatling gun"));
-    const BastionWarrior = new CrossClass("Bastion Warrior", classImages["Bastion Warrior"], weapons.get("Shield"), weapons.get("Gatling gun"));
+    const ShieldTrooper = new CrossClass("Shield Trooper", classImages["Shield Trooper"], classImages["ClassBorder"], weapons.get("Shield"), weapons.get("Gatling gun"));
+    const BastionWarrior = new CrossClass("Bastion Warrior", classImages["Bastion Warrior"], classImages["ClassBorder"], weapons.get("Shield"), weapons.get("Gatling gun"));
 
-    const Commando = new CrossClass("Commando", classImages["Commando"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
+    const Commando = new CrossClass("Commando", classImages["Commando"], classImages["ClassBorder"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
 
-    const WingedViper = new CrossClass("Winged Viper", classImages["Winged Viper"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
-    const FullMetalJaguar = new CrossClass("Full Metal Jaguar", classImages["Full Metal Jaguar"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
+    const WingedViper = new CrossClass("Winged Viper", classImages["Winged Viper"], classImages["ClassBorder"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
+    const FullMetalJaguar = new CrossClass("Full Metal Jaguar", classImages["Full Metal Jaguar"], classImages["ClassBorder"], weapons.get("Dual Blades"), weapons.get("Dual Guns"));
 
-    const PartisanEagle = new CrossClass("Partisan Eagle", classImages["Partisan Eagle"], weapons.get("Javelin"), weapons.get("Sniper Rifle"));
-    const AstralCrusader = new CrossClass("Astral Crusader", classImages["Astral Crusader"], weapons.get("Javelin"), weapons.get("Sniper Rifle"));
+    const PartisanEagle = new CrossClass("Partisan Eagle", classImages["Partisan Eagle"], classImages["ClassBorder"], weapons.get("Javelin"), weapons.get("Sniper Rifle"));
+    const AstralCrusader = new CrossClass("Astral Crusader", classImages["Astral Crusader"], classImages["ClassBorder"], weapons.get("Javelin"), weapons.get("Sniper Rifle"));
 
-    const Enforcer = new CrossClass("Enforcer", classImages["Enforcer"], weapons.get("Knife"), weapons.get("Raygun"));
+    const Enforcer = new CrossClass("Enforcer", classImages["Enforcer"], classImages["ClassBorder"], weapons.get("Knife"), weapons.get("Raygun"));
 
-    const Psycorruptor = new CrossClass("Psycorruptor", classImages["Psycorruptor"], weapons.get("Knife"), weapons.get("Raygun"));
-    const Mastermind = new CrossClass("Mastermind", classImages["Mastermind"], weapons.get("Knife"), weapons.get("Raygun"));
+    const Psycorruptor = new CrossClass("Psycorruptor", classImages["Psycorruptor"], classImages["ClassBorder"], weapons.get("Knife"), weapons.get("Raygun"));
+    const Mastermind = new CrossClass("Mastermind", classImages["Mastermind"], classImages["ClassBorder"], weapons.get("Knife"), weapons.get("Raygun"));
 
-    const BlastFencer = new CrossClass("Blast Fencer", classImages["Blast Fencer"], weapons.get("Photon Saber"), weapons.get("Psycho Launchers"));
-    const GalacticKnight = new CrossClass("Galactic Knight", classImages["Galactic Knight"], weapons.get("Photon Saber"), weapons.get("Psycho Launchers"));
+    const BlastFencer = new CrossClass("Blast Fencer", classImages["Blast Fencer"], classImages["ClassBorder"], weapons.get("Photon Saber"), weapons.get("Psycho Launchers"));
+    const GalacticKnight = new CrossClass("Galactic Knight", classImages["Galactic Knight"], classImages["ClassBorder"], weapons.get("Photon Saber"), weapons.get("Psycho Launchers"));
 
     Drifter.parentClass = null;
     Drifter.childClasses = [Striker, Commando, Enforcer];
