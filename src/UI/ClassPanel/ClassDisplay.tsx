@@ -22,6 +22,7 @@ function ClassDisplay({ classe, onClassClicked }: ClassNameDisplayProps) {
         <img className="classLogo" src={classe?.image} onClick={handleClick} />
         <img className="border" src={classe?.border}/>
       </div>
+      <p>{classe?.meleeWeapon?.name} {classe?.rangeWeapon?.name}</p>
     </div>
     </>
   );
