@@ -28,7 +28,6 @@
     position: relative;
     width: 100px;
     height: 100px;
-    background: linear-gradient(transparent 45%, black 45%, black 55%, transparent 55%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,16 +37,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 0; /* Ensure the container does not add extra margin */
+    margin-bottom: 0;
 }
 
 p {
     margin-top: 0; 
     margin-bottom: 0;
     text-align: center;
-    white-space: nowrap; /* Force the text to be on one line */
-    overflow: hidden; /* Optional: Hide overflow text */
-    text-overflow: ellipsis; /* Optional: Add ellipsis for overflow text */
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
 
 .classLogo {
@@ -71,9 +70,3 @@ p {
     width: 150%;
     object-fit: contain;
 }
-
-.divider {
-    flex-grow: 1;
-    border-bottom: 1px solid black;
-    margin: 5px
-  }
