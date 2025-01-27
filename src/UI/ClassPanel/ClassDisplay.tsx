@@ -16,10 +16,13 @@ function ClassDisplay({ classe, onClassClicked }: ClassNameDisplayProps) {
 
   return (
     <>
+    <div className="class-container">
+      <p>{classe?.name}</p>
       <div className="image-container">
         <img className="classLogo" src={classe?.image} onClick={handleClick} />
         <img className="border" src={classe?.border}/>
       </div>
+    </div>
     </>
   );
 }
