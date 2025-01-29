@@ -9,6 +9,7 @@ import TeamDisplayList from "./UI/TeamBuilder/TeamDisplayList.tsx";
 import TeamBuilder from "./Applications/TeamBuilder.tsx";
 import ClassPanel from "./UI/ClassPanel/ClassPanel.tsx";
 import Weapons from "./classes/DataClass/Weapons.tsx";
+import WeaponOddFinder from "./Applications/WeaponOddFinder.tsx";
 
 function App() {
   const chara: Map<string, Character> = Character.getCharacters();
@@ -23,7 +24,9 @@ function App() {
     <>
       {/* <WeaponOddCalc team={team} characters={chara} setTeam={setTeam} /> */}
       {/* <TeamBuilder characters={chara} team={team} setTeam={setTeam}/> */}
-      <ClassPanel />
+      {/* <ClassPanel /> */}
+
+      <WeaponOddFinder />
     </>
   );
 }
