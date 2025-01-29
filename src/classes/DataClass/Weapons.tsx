@@ -1,6 +1,6 @@
 class Weapons {
-    private _name!: String;
-    private _type!: String;    
+    private _name!: string;
+    private _type!: string;    
     private _odd!: number;    
 
     static weapons = new Map<String, Weapons>();
@@ -76,14 +76,14 @@ class Weapons {
         }
     }
     
-    public get name(): String {
+    public get name(): string {
         return this._name;
     }
     public set name(value: string) {
         this._name = value;
     }
 
-    public get type(): String {
+    public get type(): string {
         return this._type;
     }
     public set type(value: string) {
