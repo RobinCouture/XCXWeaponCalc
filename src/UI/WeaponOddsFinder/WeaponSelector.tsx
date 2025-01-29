@@ -9,7 +9,7 @@ function WeaponSelector({weapons, onWeaponSelection}: WeaponSelectorProps) {
     const type : String = Array.from(weapons.values())[0].type;
     const options = Array.from(weapons.values()).map((weapon) => {
         return (
-            <option value={weapon.name}>{weapon.name}</option>
+            <option key={weapon.name} value={weapon.name}>{weapon.name}</option>
         )
     });
     return (
